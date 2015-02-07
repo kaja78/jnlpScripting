@@ -1,0 +1,13 @@
+<!DOCTYPE JNLP>
+<jnlp spec="6.0+" codebase="http://localhost:8080/jnlpScripting" href="http://localhost:8080/jnlpScripting/jnlpScripting.jnlp">
+  <update check="always" policy="always"/>
+  <offline-allowed>false</offline-allowed>
+   <security>
+      <all-permissions/>
+  </security>  
+  <resources>
+        <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+        <jar href="jnlpScripting.jar" main="true" />
+  </resources>
+   <application-desc main-class="org.kh.jnlpScripting.Main"/>
+ </jnlp> 

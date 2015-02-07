@@ -1,0 +1,56 @@
+<project name="jnlpScripting" default="sign-jar">
+	
+	<property name="src.dir" value="src" />
+	<property name="build.dir" value="build" />
+	<property name="tmp.dir" value="${build.dir}/tmp" />
+	<property name="src.encoding" value="windows-1250" />
+	<property name="lib.dir" value="lib" />
+	<property name="tmp.bin.dir" value="${tmp.dir}/bin" />
+		
+	<target name="clean">
+		<mkdir dir="${build.dir}" />
+		<delete includeemptydirs="true">
+			<fileset dir="${build.dir}">
+				<!-- Exclude classes dir, which is used by Eclipse JWT plugin.-->
+				<exclude name="classes/**" />
+			</fileset>
+		</delete>
+	</target>
+	
+	<target name="compile" depends="clean">
+		<mkdir dir="${tmp.bin.dir}" />
+		<javac srcdir="${src.dir}" destdir="${tmp.bin.dir}" debug="true" encoding="${src.encoding}">
+		</javac>
+		<copy todir="${tmp.bin.dir}">
+			<fileset dir="src">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+		<mkdir dir="${tmp.bin.dir}/META-INF" />
+	</target>
+	
+	<target name="create-jar" depends="compile">
+		<jar destfile="${build.dir}/${ant.project.name}.jar" basedir="${tmp.bin.dir}" manifest="${tmp.bin.dir}/META-INF/MANIFEST.MF" />
+	</target>
+	
+	<target name="sign-jar" depends="create-jar">
+			<signjar alias="mykey" storepass="password" keystore="KH.keystore">
+				<fileset dir=".">
+					<include name="${build.dir}/${ant.project.name}.jar" />
+				</fileset>
+			</signjar>
+		<copy file="${build.dir}/${ant.project.name}.jar" todir="WebContent"/>
+	</target>
+	
+	<target name="gencert" description="Generate a certificate to sign the jar file">
+		<delete file="KH.keystore" />
+		<genkey dname="CN=KH,
+				 OU=KH,
+				 O=KH,
+				 L=Prague,
+				 ST=Unknown,
+				 C=CZ" validity="3650" storepass="password" alias="mykey" keystore="KH.keystore" />
+	</target>
+
+
+</project>
