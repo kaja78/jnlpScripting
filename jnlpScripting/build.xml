@@ -6,6 +6,13 @@
 	<property name="src.encoding" value="windows-1250" />
 	<property name="lib.dir" value="lib" />
 	<property name="tmp.bin.dir" value="${tmp.dir}/bin" />
+	
+	<path id="compile-class-path">
+		<fileset dir="lib">
+			<include name="*.jar"/>
+			<exclude name="${ant.project.name}.jar"/>
+		</fileset>
+	</path>
 		
 	<target name="clean">
 		<mkdir dir="${build.dir}" />
@@ -19,7 +26,7 @@
 	
 	<target name="compile" depends="clean">
 		<mkdir dir="${tmp.bin.dir}" />
-		<javac srcdir="${src.dir}" destdir="${tmp.bin.dir}" debug="true" encoding="${src.encoding}">
+		<javac srcdir="${src.dir}" classpathref="compile-class-path" destdir="${tmp.bin.dir}" debug="true" encoding="${src.encoding}">
 		</javac>
 		<copy todir="${tmp.bin.dir}">
 			<fileset dir="src">
@@ -34,12 +41,13 @@
 	</target>
 	
 	<target name="sign-jar" depends="create-jar">
-			<signjar alias="mykey" storepass="password" keystore="KH.keystore">
-				<fileset dir=".">
-					<include name="${build.dir}/${ant.project.name}.jar" />
-				</fileset>
-			</signjar>
 		<copy file="${build.dir}/${ant.project.name}.jar" todir="WebContent"/>
+		<signjar alias="mykey" storepass="password" keystore="KH.keystore">
+				<fileset dir=".">
+					<include name="WebContent/*.jar" />
+				</fileset>
+		</signjar>
+		
 	</target>
 	
 	<target name="gencert" description="Generate a certificate to sign the jar file">

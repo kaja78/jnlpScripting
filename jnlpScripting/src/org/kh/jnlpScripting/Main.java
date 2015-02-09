@@ -11,6 +11,7 @@ public class Main {
 	public static void main(String[] args) {
 		Main main=new Main();
 		ScriptEngine scriptEngine=new ScriptEngineManager().getEngineByName("javascript");
+		System.out.println("Using script engine: "+scriptEngine.getClass().getName());
 		scriptEngine.put("main", main);
 		
 		System.out.println("Executing doPrivilegedAction() from java code.");

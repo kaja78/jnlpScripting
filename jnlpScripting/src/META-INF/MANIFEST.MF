@@ -1,6 +1,5 @@
 Manifest-Version: 1.0
 Application-Name: jnlpScripting
 Permissions: all-permissions
-Main-Class: org.kh.jnlpScripting.Main
 Codebase: *
-Caller-Allowable-Codebase: http://localhost:8080/jnlpScripting
+Main-Class: org.kh.jnlpScripting.Main
