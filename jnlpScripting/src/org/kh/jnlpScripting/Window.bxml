@@ -1,0 +1,14 @@
+<Window title="Priviliged Actions" maximized="true"
+    xmlns:bxml="http://pivot.apache.org/bxml"
+    xmlns="org.apache.pivot.wtk"
+    xmlns:jnlpScripting="org.kh.jnlpScripting">
+    
+     <bxml:define>
+     	<jnlpScripting:PrivilegedActions bxml:id="actions"/>
+     </bxml:define>
+   <BoxPane styles="{padding:4, horizontalAlignment:'center',
+            verticalAlignment:'center'}">
+            <PushButton  buttonData="HTTP connect" ButtonPressListener.buttonPressed="actions.makeHTTPConnection()"/>
+            <PushButton  buttonData="Change private field" ButtonPressListener.buttonPressed="actions.changeValueOfPrivateField()"/>
+    </BoxPane>
+</Window>

@@ -8,9 +8,10 @@
 	<property name="tmp.bin.dir" value="${tmp.dir}/bin" />
 	
 	<path id="compile-class-path">
-		<fileset dir="lib">
+		<fileset dir="WebContent">
 			<include name="*.jar"/>
 			<exclude name="${ant.project.name}.jar"/>
+			<exclude name="js*.jar"/>
 		</fileset>
 	</path>
 		

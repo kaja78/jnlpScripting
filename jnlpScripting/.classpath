@@ -4,7 +4,8 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="lib/js-engine.jar"/>
-	<classpathentry kind="lib" path="lib/js.jar"/>
+	<classpathentry kind="lib" path="WebContent/pivot-core-2.1.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/pivot-wtk-2.1.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/pivot-wtk-terra-2.1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
