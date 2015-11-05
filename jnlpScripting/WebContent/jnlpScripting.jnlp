@@ -1,18 +1,21 @@
 <!DOCTYPE JNLP>
 <jnlp spec="6.0+" codebase="http://localhost:8080/jnlpScripting" href="http://localhost:8080/jnlpScripting/jnlpScripting.jnlp">
+  <information>
+    <title>Java Scripting</title>
+  </information>
   <update check="always" policy="always"/>
   <offline-allowed>false</offline-allowed>
    <security>
       <all-permissions/>
   </security>  
   <resources>
-        <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+        <j2se version="1.8+" href="http://java.sun.com/products/autodl/j2se"/>
         <jar href="jnlpScripting.jar" main="true" />
-        <!-- Uncomment to fix security issues in JRE 1.8.0_31-->
-        <! --
+        <!-- Uncomment to fix security issues in JRE 1.8-->
+        <!--
         <jar href="js.jar" main="false" />
         <jar href="js-engine.jar" main="false" />
-        -->
+        -->        
   </resources>
    <application-desc main-class="org.kh.jnlpScripting.Main"/>
  </jnlp> 
