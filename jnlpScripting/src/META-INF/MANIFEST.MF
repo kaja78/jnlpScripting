@@ -1,5 +1,8 @@
 Manifest-Version: 1.0
 Application-Name: jnlpScripting
 Permissions: all-permissions
+Trusted-Library: true
 Codebase: *
-Main-Class: org.kh.jnlpScripting.Main
+Entry-Point: org.kh.jnlpScripting.PivotMain org.kh.jnlpScripting.Main
+Application-Library-Allowable-Codebase: *
+Caller-Allowable-Codebase: *
