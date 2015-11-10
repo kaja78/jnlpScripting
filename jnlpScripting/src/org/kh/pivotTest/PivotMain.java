@@ -14,7 +14,7 @@ public class PivotMain implements Application {
 
     @Override
     public void startup(Display display, Map<String, String> properties) throws Exception {
-        BXMLSerializer bxmlSerializer = new InjectingSerializer();
+        BXMLSerializer bxmlSerializer = new BXMLSerializer();
         this.window = (Window) bxmlSerializer.readObject(Window.class,"/org/kh/pivotTest/Window.bxml");
         this.window.open(display);
     }

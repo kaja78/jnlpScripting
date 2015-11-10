@@ -12,12 +12,12 @@
   <resources>
         <j2se version="1.8+" href="http://java.sun.com/products/autodl/j2se"/>
         <jar href="jnlpScripting.jar" main="true" />
-        <jar href="pivot-core-2.1.0.jar"/>
-        <jar href="pivot-wtk-2.1.0.jar"/>
-        <jar href="pivot-wtk-terra-2.1.0.jar"/>
+        <jar href="pivot-core-2.0.5.jar"/>
+        <jar href="pivot-wtk-2.0.5.jar"/>
+        <jar href="pivot-wtk-terra-2.0.5.jar"/>
         
         <!-- Uncomment to fix security issues in JRE 1.8-->
-        <!--
+		<!--
         <jar href="js.jar" main="false" />
         <jar href="js-engine.jar" main="false" />
         -->
