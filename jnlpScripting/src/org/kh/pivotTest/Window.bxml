@@ -1,0 +1,31 @@
+<Window title="Priviliged Actions" maximized="true"
+    xmlns:bxml="http://pivot.apache.org/bxml"
+    xmlns="org.apache.pivot.wtk">
+    
+    <bxml:script type="text/javascript">
+		function isNull(value) {
+      		return value == null;
+    	}
+    	
+    	function isNotNull(value) {
+ 			return value != null;
+    	}
+
+    	function toUpperCase(value) {        
+        	return value.toUpperCase();
+    	}    
+   </bxml:script>
+    <Border>
+        <Form>
+            <Form.Section heading="One-Way Binding">
+                <TextInput bxml:id="textInput" Form.label="Text Input"/>
+                <Label Form.label="Text" text="${textInput.text}"/>
+                <Label Form.label="Uppercase Text" text="${toUpperCase:textInput.text}"/>
+            </Form.Section>
+            
+            <bxml:include src="/org/kh/pivotTest/IncludedSection.bxml" inline="true"/>
+            
+        </Form>
+    </Border>
+
+</Window>

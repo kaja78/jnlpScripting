@@ -1,0 +1,10 @@
+ <Form.Section xmlns="org.apache.pivot.wtk" xmlns:bxml="http://pivot.apache.org/bxml" heading="Included section">
+ 
+  <bxml:script>
+  
+    function concateText(value) {
+        return value+value;
+    }
+   </bxml:script>
+   <Label Form.label="Concated Text" text="${concateText:textInput.text}"/>
+</Form.Section>   
