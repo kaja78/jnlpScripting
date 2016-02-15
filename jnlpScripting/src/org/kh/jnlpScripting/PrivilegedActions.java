@@ -24,5 +24,5 @@ public class PrivilegedActions {
 		System.out.println("Connected using HTTP. Content length: "
 				+ c.getContentLength());
 	}
-
+	
 }

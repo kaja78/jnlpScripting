@@ -7,8 +7,6 @@ import org.apache.pivot.wtk.DesktopApplicationContext;
 import org.apache.pivot.wtk.Display;
 import org.apache.pivot.wtk.Window;
 
-import pivot_contrib.util.serializer.InjectingSerializer;
-
 public class PivotMain implements Application {
     private Window window = null;
 

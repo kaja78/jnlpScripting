@@ -2,6 +2,7 @@
 <jnlp spec="6.0+" codebase="http://localhost:8080/jnlpScripting" href="http://localhost:8080/jnlpScripting/pivotScripting.jnlp">
   <information>
     <title>Pivot Scripting</title>
+    <vendor>kaja78</vendor>
   </information>
   
   <update check="always" policy="always"/>
@@ -12,9 +13,9 @@
   <resources>
         <j2se version="1.8+" href="http://java.sun.com/products/autodl/j2se"/>
         <jar href="jnlpScripting.jar" main="true" />
-        <jar href="pivot-core-2.0.5.jar"/>
-        <jar href="pivot-wtk-2.0.5.jar"/>
-        <jar href="pivot-wtk-terra-2.0.5.jar"/>
+        <jar href="pivot-core-2.0.5-20160215.jar"/>
+        <jar href="pivot-wtk-2.0.5-20160215.jar"/>
+        <jar href="pivot-wtk-terra-2.0.5-20160215.jar"/>
         
         <!-- Uncomment to fix security issues in JRE 1.8-->
 		<!--
