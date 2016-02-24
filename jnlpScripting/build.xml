@@ -1,4 +1,4 @@
-<project name="jnlpScripting" default="sign-jar">
+<project name="jnlpScripting" default="create-war">
 	
 	<property name="src.dir" value="src" />
 	<property name="build.dir" value="build" />
@@ -40,7 +40,7 @@
 	<target name="create-jar" depends="compile">
 		<jar destfile="${build.dir}/${ant.project.name}.jar" basedir="${tmp.bin.dir}" manifest="${tmp.bin.dir}/META-INF/MANIFEST.MF" />
 	</target>
-	
+		
 	<target name="sign-jar" depends="create-jar">
 		<copy file="${build.dir}/${ant.project.name}.jar" todir="WebContent"/>
 		<signjar alias="mykey" storepass="password" keystore="KH.keystore">
@@ -49,6 +49,12 @@
 				</fileset>
 		</signjar>
 		
+	</target>
+	
+	<target name="create-war" depends="sign-jar">
+		<war destfile="${build.dir}/jnlpScripting.war">
+			<fileset dir="WebContent"/>
+		</war>
 	</target>
 	
 	<target name="gencert" description="Generate a certificate to sign the jar file">
