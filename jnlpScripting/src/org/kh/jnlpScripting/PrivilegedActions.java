@@ -7,6 +7,16 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class PrivilegedActions {
+	
+	private String testingUrl="http://localhost:8080/jnlpScripting/index.html";
+
+	public String getTestingUrl() {
+		return testingUrl;
+	}
+
+	public void setTestingUrl(String testingUrl) {
+		this.testingUrl = testingUrl;
+	}
 
 	public void changeValueOfPrivateField() throws NoSuchFieldException,
 			IllegalAccessException {
@@ -19,9 +29,9 @@ public class PrivilegedActions {
 
 	public void makeHTTPConnection() throws IOException, MalformedURLException {
 		URLConnection c = new URL(
-				"http://localhost:8080/jnlpScripting/index.html")
+				getTestingUrl())
 				.openConnection();
-		System.out.println("Connected using HTTP. Content length: "
+		System.out.println("Connected to "+getTestingUrl()+". Content length: "
 				+ c.getContentLength());
 	}
 	

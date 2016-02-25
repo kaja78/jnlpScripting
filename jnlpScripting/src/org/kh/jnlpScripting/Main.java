@@ -5,10 +5,16 @@ import javax.script.ScriptEngineManager;
 
 public class Main {
 	
+	private PrivilegedActions actions=new PrivilegedActions();
+	
 	public static final String NASHORN_COMPAT_SCRIPT = "if (typeof importClass != \"function\") { load(\"nashorn:mozilla_compat.js\"); }";
 	
 	public static void main(String[] args) {
 		Main main=new Main();
+		if (args.length==1) {
+			main.actions.setTestingUrl(args[0]);
+		}		
+		
 		ScriptEngine scriptEngine=new ScriptEngineManager().getEngineByName("javascript");
 		System.out.println("Using script engine: "+scriptEngine.getClass().getName());
 		scriptEngine.put("main", main);
@@ -29,8 +35,7 @@ public class Main {
 		}
 	}
 	
-	public void doPrivilegedAction() throws Exception{
-		PrivilegedActions actions=new PrivilegedActions();
+	public void doPrivilegedAction() throws Exception{		
 		actions.makeHTTPConnection();		
 		actions.changeValueOfPrivateField();
 	}
